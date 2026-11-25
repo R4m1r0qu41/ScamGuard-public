@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": "experimental.selected-message.v1",
+    "id": "x-ask",
+    "source": "x_public",
+    "source_ref": "synthetic:x-ask",
+    "observed_at": "2026-11-13T00:00:00Z",
+    "scope_ref": "November offline experiment",
+    "authority": "synthetic",
+    "selected": true,
+    "redacted": true,
+    "sender_ref": "sender-demo",
+    "text": "TOKEN PRESALE verified by a famous brand. Please share your seed phrase."
+  },
+  {
+    "schema_version": "experimental.selected-message.v1",
+    "id": "x-benign",
+    "source": "x_public",
+    "source_ref": "synthetic:x-benign",
+    "observed_at": "2026-11-13T00:00:00Z",
+    "scope_ref": "November offline experiment",
+    "authority": "synthetic",
+    "selected": true,
+    "redacted": true,
+    "sender_ref": "sender-demo",
+    "text": "Community documentation explains how to review project release notes."
+  },
+  {
+    "schema_version": "experimental.selected-message.v1",
+    "id": "sms-ambiguous",
+    "source": "sms_local",
+    "source_ref": "synthetic:sms-ambiguous",
+    "observed_at": "2026-11-13T00:00:00Z",
+    "scope_ref": "November offline experiment",
+    "authority": "synthetic",
+    "selected": true,
+    "redacted": true,
+    "sender_ref": "sender-demo",
+    "text": "Your parcel status changed. Check the delivery information when convenient."
+  }
+]

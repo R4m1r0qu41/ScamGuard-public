@@ -1,0 +1,33 @@
+{
+  "schema_version": "experimental.github-snapshot.v1",
+  "observed_at": "2026-11-12T00:00:00Z",
+  "source_ref": "synthetic:community-fixture",
+  "provenance": "synthetic operator-authorized test; no real accounts",
+  "scope_ref": "2026-11 reboot offline experiment",
+  "repository": "synthetic/community-demo",
+  "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "files": {},
+  "accounts": {
+    "developer-0": {
+      "following": 100000,
+      "followers": 2000,
+      "destinations": [
+        "https://community.example/"
+      ]
+    },
+    "developer-1": {
+      "following": 100000,
+      "followers": 2000,
+      "destinations": [
+        "https://community.example/"
+      ]
+    },
+    "developer-2": {
+      "following": 100000,
+      "followers": 2000,
+      "destinations": [
+        "https://community.example/"
+      ]
+    }
+  }
+}

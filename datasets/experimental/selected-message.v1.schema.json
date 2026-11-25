@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Design-only selected local message; not consent authorization",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "source",
+    "source_ref",
+    "observed_at",
+    "scope_ref",
+    "authority",
+    "selected",
+    "redacted",
+    "sender_ref",
+    "text"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experimental.selected-message.v1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "enum": [
+        "x_public",
+        "sms_local"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "enum": [
+        "synthetic",
+        "controller_authorized"
+      ]
+    },
+    "selected": {
+      "const": true
+    },
+    "redacted": {
+      "const": true
+    },
+    "sender_ref": {
+      "type": "string",
+      "pattern": "^sender-[a-z0-9-]+$"
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 65536
+    }
+  }
+}

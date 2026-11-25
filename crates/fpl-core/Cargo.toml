@@ -1,0 +1,17 @@
+[package]
+name = "fpl-core"
+version = "0.1.0"
+description = "Fraud Prevention Layer core: contract types (detector-output.v1), deterministic MVP detectors, and the unified risk engine. Public product: Scam Guard."
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+regex = { workspace = true }
+
+[dev-dependencies]
+jsonschema = { workspace = true }
